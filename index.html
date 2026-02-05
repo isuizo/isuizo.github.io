@@ -4,169 +4,251 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Isabel Suizo</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --primary: #66545e;
       --secondary: #a39193;
       --accent: #aa6f73;
       --highlight: #eea990;
-      --bg-light: #f6e0b5;
-      --text-dark: #222;
-      --text-muted: #555;
+      --bg: #ffffff;
+      --text-dark: #1f1f1f;
+      --text-muted: #6b6b6b;
+      --border-soft: #ececec;
+      --card-bg: #ffffff;
     }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Lora', serif;
       margin: 0;
-      background: var(--bg-light);
+      background: var(--bg);
       color: var(--text-dark);
-      line-height: 1.6;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
+
+    /* NAV */
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      background: var(--primary);
-      color: white;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--border-soft);
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
+
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.6rem;
     }
+
     .brand img {
-      width: 48px;
-      height: 48px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid white;
     }
+
     .brand h1 {
-      font-size: 1.5rem;
-      font-weight: 700;
+      font-size: 1.1rem;
+      font-weight: 600;
       margin: 0;
-      color: white;
+      color: var(--primary);
+      letter-spacing: 0.2px;
     }
+
     nav a {
       margin-left: 1.5rem;
       text-decoration: none;
-      color: white;
-      font-weight: 500;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
     }
+
     nav a:hover {
-      color: var(--highlight);
+      color: var(--accent);
     }
+
+    /* LAYOUT */
     section {
-      max-width: 800px;
+      max-width: 780px;
       margin: 0 auto;
-      padding: 4rem 1.5rem;
+      padding: 4.5rem 1.5rem;
     }
+
     section h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
       color: var(--primary);
+      position: relative;
     }
+
+    section h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      opacity: 0.6;
+    }
+
+    /* HERO */
     .hero {
       text-align: center;
-      padding: 6rem 1.5rem;
-      background: white;
-      border-bottom: 1px solid var(--secondary);
+      padding-top: 5.5rem;
+      padding-bottom: 3.5rem;
     }
+
     .hero img {
-      width: 140px;
-      height: 140px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid var(--accent);
       margin-bottom: 1.5rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 2px solid var(--border-soft);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
+
     .hero img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transform: scale(1.04);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     }
+
     .hero h2 {
-      font-size: 2.5rem;
+      font-size: 2.3rem;
       margin-bottom: 0.25rem;
       color: var(--primary);
-    }
-    .hero h3 {
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-      color: var(--accent);
       font-weight: 600;
     }
+
+    .hero h3 {
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
     .hero p {
       color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 2rem;
+      max-width: 560px;
+      margin: 0 auto 1.75rem;
+      font-size: 0.98rem;
     }
+
     .hero a {
       color: var(--accent);
       text-decoration: none;
       font-weight: 600;
     }
+
     .hero a:hover {
       text-decoration: underline;
       color: var(--highlight);
     }
+
+    /* CONTACT */
     .contact-icons {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
-      margin-top: 2rem;
+      gap: 1.25rem;
+      margin-top: 1.75rem;
       align-items: center;
+      flex-wrap: wrap;
     }
+
     .contact-icons span {
-      font-size: 1.25rem;
-      color: var(--text-dark);
+      font-size: 0.95rem;
+      color: var(--text-muted);
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
     }
+
     .contact-icons a {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       color: var(--primary);
-      transition: color 0.3s;
+      transition: color 0.2s ease, transform 0.2s ease;
     }
+
     .contact-icons a:hover {
       color: var(--accent);
+      transform: translateY(-1px);
     }
+
+    /* PAPERS */
     ul.papers {
       list-style: none;
       padding-left: 0;
+      margin: 0;
+      display: grid;
+      gap: 1.25rem;
     }
+
     ul.papers li {
-      margin-bottom: 2rem;
+      background: var(--card-bg);
+      padding: 1.4rem 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-soft);
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
     }
-    ul.papers li .title {
-      color: var(--accent);
+
+    ul.papers li:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+    }
+
+    ul.papers .title {
+      color: var(--primary);
       font-style: italic;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
     }
-    ul.papers li .authors {
-      color: var(--text-dark);
-      margin-top: 0.25rem;
-    }
-    ul.papers li .title a {
-      color: var(--accent);
+
+    ul.papers .title a {
+      color: var(--primary);
       text-decoration: none;
     }
-    ul.papers li .title a:hover {
-      text-decoration: underline;
+
+    ul.papers .title a:hover {
+      color: var(--accent);
     }
+
+    ul.papers .authors {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* FOOTER */
     footer {
       text-align: center;
-      padding: 2rem;
-      background: var(--primary);
-      color: white;
-      font-size: 0.9rem;
+      padding: 2.5rem 1.5rem;
+      margin-top: 3rem;
+      border-top: 1px solid var(--border-soft);
+      color: var(--text-muted);
+      font-size: 0.85rem;
     }
+
   </style>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
+
   <nav>
     <div class="brand">
       <img src="images/avatar.jpg" alt="Isabel Suizo">
@@ -183,7 +265,14 @@
     <img src="images/avatar.jpg" alt="Isabel Suizo">
     <h2>Isabel Suizo</h2>
     <h3>3rd Year @ CMU</h3>
-    <p>Hello! I am currently a PhD student at Carnegie Mellon. I am fortunate to be advised by <a href="https://www.justinesherry.com/">Justine Sherry</a> and <a href="https://www.andrew.cmu.edu/user/theophib/">Theo Benson</a>. I am broadly interested in improving Internet access by using wide-scale empirical measurements to design networks better tailored to a region’s technical needs.</p>
+
+    <p>
+      Hello! I am currently a PhD student at Carnegie Mellon University. I am fortunate to be advised by
+      <a href="https://www.justinesherry.com/">Justine Sherry</a> and
+      <a href="https://www.andrew.cmu.edu/user/theophib/">Theo Benson</a>.
+      I am broadly interested in improving Internet access by using wide-scale empirical
+      measurements to design networks better tailored to each region's technical needs.
+    </p>
 
     <div class="contact-icons">
       <span><i class="fas fa-envelope"></i> isabel AT cmu.edu</span>
@@ -196,18 +285,33 @@
     <h2>Papers</h2>
     <ul class="papers">
       <li>
-        <div class="title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5376300" target="_blank">A First Look at Starlink's Impact on Internet Equity (TPRC '25)</a></div>
-        <div class="authors"> <strong>Isabel Suizo</strong>, David Andersen, Theophilus A. Benson, and Justine Sherry</div>
+        <div class="title">
+          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5376300" target="_blank">
+            A First Look at Starlink's Impact on Internet Equity (TPRC '25)
+          </a>
+        </div>
+        <div class="authors">
+          <strong>Isabel Suizo</strong>, David Andersen, Theophilus A. Benson, and Justine Sherry
+        </div>
       </li>
+
       <li>
-        <div class="title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5383658" target="_blank">Congestion Safety Audits for Internet Services (TPRC '25')</a></div>
-        <div class="authors">Adithya Abraham Philip, Srinivasan Seshan, Justine Sherry, <strong>Isabel Suizo</strong>, and Ranysha Ware</div>
+        <div class="title">
+          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5383658" target="_blank">
+            Congestion Safety Audits for Internet Services (TPRC '25)
+          </a>
+        </div>
+        <div class="authors">
+          Adithya Abraham Philip, Srinivasan Seshan, Justine Sherry,
+          <strong>Isabel Suizo</strong>, and Ranysha Ware
+        </div>
       </li>
     </ul>
   </section>
 
   <footer>
-    <p>© 2025 Isabel Suizo</p>
+    <p>Last updated: 5 February 2026</p>
   </footer>
+
 </body>
 </html>
